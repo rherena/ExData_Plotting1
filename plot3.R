@@ -31,9 +31,13 @@ datetime <- strptime(datetime, "%Y-%m-%d %H:%M:%S")
 
 
 ## Create plots
-png(file = "plot2.png", width=480,height=480,units='px')
+png(file = "plot3.png", width=480,height=480,units='px')
 
 ### Creates the plot specific that is being saved.
-plot(datetime,SelectedData$Global_active_power, ylab= "Global Active Power (kilowatts)", xlab = "", type= "l")
+plot(datetime,SelectedData$Sub_metering_1, ylab= "Energy sub metering", xlab = "", type= "l")
+lines(datetime,SelectedData$Sub_metering_2,col="red")
+lines(datetime,SelectedData$Sub_metering_3,col="blue")
+
+legend("topright", col = c("black", "red", "blue"), lty= "solid", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 dev.off()
