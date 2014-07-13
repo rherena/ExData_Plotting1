@@ -7,9 +7,9 @@ if ( !file.exists("data")) {
 
 ### if the files have not been downloaded bring them in and unzip
 if ( !file.exists("./data/household_power_consumption.txt")){
-fileurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-download.file(fileurl, destfile = "./data/Power.zip", method = "curl")
-unzip("./data/Power.zip", exdir = "./data")
+        fileurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+        download.file(fileurl, destfile = "./data/Power.zip", method = "curl")
+        unzip("./data/Power.zip", exdir = "./data")
 }
 
 columnval <- c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
@@ -17,7 +17,6 @@ columnval <- c("character","character","numeric","numeric","numeric","numeric","
 powerdata<- read.table("./data/household_power_consumption.txt", header = TRUE, sep = ";", nrows = 70000, colClasses = columnval, na.string = "?")
 
 powerdata[, 1] <- as.Date(powerdata[, 1],format = "%d/%m/%Y")
-
 
 
 
@@ -38,4 +37,3 @@ png(file = "plot2.png", width=480,height=480,units='px')
 plot(datetime,SelectedData$Global_active_power, ylab= "Global Active Power (kilowatts)", xlab = "", type= "l")
 
 dev.off()
-

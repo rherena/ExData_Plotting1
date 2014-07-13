@@ -13,12 +13,13 @@ if ( !file.exists("./data/household_power_consumption.txt")){
         unzip("./data/Power.zip", exdir = "./data")
 }
 
+columnval <- c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
 
-powerdata<- read.table("./data/household_power_consumption.txt", header = TRUE, sep = ";", nrows = 70000, colClasses = "character")
+powerdata<- read.table("./data/household_power_consumption.txt", header = TRUE, sep = ";", nrows = 70000, colClasses = columnval, na.string = "?")
 
 powerdata[, 1] <- as.Date(powerdata[, 1],format = "%d/%m/%Y")
 
-powerdata[, 3] <- as.numeric(powerdata[, 3])
+
 
 SelectedData <- subset(powerdata, as.Date(Date) >= '2007-02-01' & as.Date(Date) <= '2007-02-02') 
 
