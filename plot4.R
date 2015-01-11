@@ -49,3 +49,4 @@ legend("topright", col = c("black", "red", "blue"), lty= "solid", legend = c("Su
 plot(datetime,SelectedData$Global_reactive_power, ylab= "Global_reactive_power", xlab = "", type= "l")
 
 dev.off()
+
