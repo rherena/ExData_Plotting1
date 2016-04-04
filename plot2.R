@@ -1,4 +1,4 @@
-setwd("~/Data/datasciencecoursera/DataAnalysis/Assignment 1/ExData_Plotting1")
+setwd("~/Documents/Assignment-1-exdata-004/ExData_Plotting1")
 
 
 if ( !file.exists("data")) {
